@@ -1,0 +1,51 @@
+/* App.css */
+
+body {
+  font-family: sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 600px;
+  background-color: #f1f9ff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background-color: #d0e7ff;
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+
+td {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+input {
+  width: 200px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
