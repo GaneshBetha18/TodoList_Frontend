@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
 function TodoApp() {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
@@ -11,7 +13,7 @@ function TodoApp() {
 
   const getTodos = async () => {
     try {
-      const res = await axios.get("http://localhost:3002/todos");
+      const res = await axios.get(`${BASE_URL}/todos`);
       setTodos(res.data.reverse()); // Show latest first
     } catch (error) {
       console.error("Error fetching todos:", error);
@@ -26,12 +28,12 @@ function TodoApp() {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.patch(`http://localhost:3002/todos/${editingId}`, {
+        await axios.patch(`${BASE_URL}/todos/${editingId}`, {
           task, status, deadline,
         });
         setEditingId(null);
       } else {
-        await axios.post("http://localhost:3002/todos", {
+        await axios.post(`${BASE_URL}/todos`, {
           task, status, deadline,
         });
       }
@@ -46,7 +48,7 @@ function TodoApp() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3002/todos/${id}`);
+      await axios.delete(`${BASE_URL}/todos/${id}`);
       getTodos();
     } catch (error) {
       console.error("Error deleting todo:", error);
